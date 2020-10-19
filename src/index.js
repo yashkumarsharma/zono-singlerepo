@@ -8,7 +8,7 @@ import App from './App';
 AppRegistry.registerComponent('zonosinglerepo', () => App);
 
 if (Platform.OS === 'web') {
-  AppRegistry.runApplication('Zono', {
+  AppRegistry.runApplication('zonosinglerepo', {
     rootTag: document.getElementById('root'),
   })
 }
