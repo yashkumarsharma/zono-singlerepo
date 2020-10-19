@@ -2,9 +2,15 @@ const CircularDependencyPlugin = require('circular-dependency-plugin')
 
 module.exports = {
   babel: {
+    presets: [
+      ['@babel/preset-env', { useBuiltIns: 'usage' }],
+      '@babel/preset-react',
+    ],
     plugins: [
       ['@babel/plugin-proposal-decorators', { legacy: true }],
       '@babel/plugin-proposal-optional-chaining',
+      '@babel/plugin-transform-react-jsx',
+      '@babel/plugin-proposal-class-properties',
     ],
   },
   webpack: {
