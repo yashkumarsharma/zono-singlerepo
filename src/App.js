@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { Text } from 'react-native'
+import { View, Dimensions } from 'react-native'
 import { GiftedChat } from 'react-native-gifted-chat'
 
 export default () => {
@@ -24,37 +24,18 @@ export default () => {
     setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
   }, [])
 
+  const { width, height } = Dimensions.get('window')
   return (
     <>
-      <Text> I was called </Text>
-      <GiftedChat
-        messages={messages}
-        onSend={messages => onSend(messages)}
-        user={{
-          _id: 1,
-        }}
-      />
+      <View style={{ width, height }}>
+        <GiftedChat
+          messages={messages}
+          onSend={messages => onSend(messages)}
+          user={{
+            _id: 1,
+          }}
+          />
+      </View>
     </>
   )
 }
-
-// import React from 'react';
-// import {
-//   SafeAreaView,
-//   Text,
-//   StatusBar,
-// } from 'react-native';
-
-
-// export default () => {
-//   return (
-//     <>
-//       <StatusBar barStyle="dark-content" />
-//       <SafeAreaView>
-//         <Text>
-//           Hello World
-//         </Text>
-//       </SafeAreaView>
-//     </>
-//   );
-// };
