@@ -1,11 +1,21 @@
 /**
  * @format
  */
+import React from 'react'
+import {AppRegistry, Platform} from 'react-native'
+import { Provider as PaperProvider } from 'react-native-paper'
 
-import {AppRegistry, Platform} from 'react-native';
-import App from './App';
+import App from './App'
 
-AppRegistry.registerComponent('zonosinglerepo', () => App);
+const rootComponent = () => {
+  return (
+    <PaperProvider>
+      <App />
+    </PaperProvider>
+  )
+}
+
+AppRegistry.registerComponent('zonosinglerepo', () => rootComponent)
 
 if (Platform.OS === 'web') {
   AppRegistry.runApplication('zonosinglerepo', {
